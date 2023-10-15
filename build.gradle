@@ -1,0 +1,46 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+    id 'application'
+    id 'maven-publish'
+}
+
+group = 'com.gmail.bogumilmecel2'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+application {
+    mainClassName = 'MainKt'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.findByName('release')
+
+                groupId = 'com.github.bodzio6978'
+                artifactId = 'fitness-app-common'
+                version = '1.0'
+            }
+        }
+    }
+}
