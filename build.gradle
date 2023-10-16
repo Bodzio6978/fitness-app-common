@@ -31,16 +31,14 @@ application {
     mainClassName = 'MainKt'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.findByName('release')
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.github.bodzio6978"
+            artifactId = "fitness-app-common"
+            version = "1.2"
 
-                groupId = 'com.github.bodzio6978'
-                artifactId = 'fitness-app-common'
-                version = '1.1'
-            }
+            from components.java
         }
     }
 }
