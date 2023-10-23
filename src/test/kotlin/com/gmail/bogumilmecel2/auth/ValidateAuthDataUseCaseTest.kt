@@ -4,7 +4,7 @@ import com.gmail.bogumilmecel2.util.Constants
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class ValidateRegisterDataUseCaseTest {
+class ValidateAuthDataUseCaseTest {
     companion object {
         private const val INVALID_EMAIL = "email"
         private const val CORRECT_EMAIL = "email@email.com"
@@ -12,12 +12,42 @@ class ValidateRegisterDataUseCaseTest {
         private const val CORRECT_USERNAME = "username"
     }
 
-    private val validateRegisterDataUseCase = ValidateRegisterDataUseCase()
+    private val validateAuthDataUseCase = ValidateAuthDataUseCase()
+
+    @Test
+    fun `Check if email is empty, empty fields result is returned`() {
+        assertEquals(
+            expected = ValidateAuthDataUseCase.Result.EmptyFields,
+            actual = callTestedMethod(
+                email = ""
+            ),
+        )
+    }
+
+    @Test
+    fun `Check if password is empty, empty fields result is returned`() {
+        assertEquals(
+            expected = ValidateAuthDataUseCase.Result.EmptyFields,
+            actual = callTestedMethod(
+                password = ""
+            ),
+        )
+    }
+
+    @Test
+    fun `Check if username is empty, empty fields result is returned`() {
+        assertEquals(
+            expected = ValidateAuthDataUseCase.Result.EmptyFields,
+            actual = callTestedMethod(
+                username = ""
+            ),
+        )
+    }
 
     @Test
     fun `Check if email is shorter than min length, email length invalid result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.EmailLengthInvalid,
+            expected = ValidateAuthDataUseCase.Result.EmailLengthInvalid,
             actual = callTestedMethod(
                 email = createString(length = Constants.Authentication.EMAIL_MIN_LENGTH - 1)
             ),
@@ -27,7 +57,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check if email is longer than max length, email length invalid result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.EmailLengthInvalid,
+            expected = ValidateAuthDataUseCase.Result.EmailLengthInvalid,
             actual = callTestedMethod(
                 email = createString(length = Constants.Authentication.EMAIL_MAX_LENGTH + 1)
             ),
@@ -37,7 +67,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check if password is shorter than min length, password length invalid result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.PasswordLengthInvalid,
+            expected = ValidateAuthDataUseCase.Result.PasswordLengthInvalid,
             actual = callTestedMethod(
                 password = createString(length = Constants.Authentication.PASSWORD_MIN_LENGTH - 1)
             ),
@@ -47,7 +77,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check if password is longer than max length, password length invalid result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.PasswordLengthInvalid,
+            expected = ValidateAuthDataUseCase.Result.PasswordLengthInvalid,
             actual = callTestedMethod(
                 password = createString(length = Constants.Authentication.PASSWORD_MAX_LENGTH + 1)
             ),
@@ -57,7 +87,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check if username is shorter than min length, username length invalid result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.UsernameLengthInvalid,
+            expected = ValidateAuthDataUseCase.Result.UsernameLengthInvalid,
             actual = callTestedMethod(
                 username = createString(length = Constants.Authentication.USERNAME_MIN_LENGTH - 1)
             ),
@@ -67,7 +97,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check if username is longer than max length, username length invalid result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.UsernameLengthInvalid,
+            expected = ValidateAuthDataUseCase.Result.UsernameLengthInvalid,
             actual = callTestedMethod(
                 username = createString(length = Constants.Authentication.USERNAME_MAX_LENGTH + 1)
             ),
@@ -77,7 +107,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check if email is invalid, invalid email result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.InvalidEmail,
+            expected = ValidateAuthDataUseCase.Result.InvalidEmail,
             actual = callTestedMethod(email = INVALID_EMAIL),
         )
     }
@@ -85,7 +115,7 @@ class ValidateRegisterDataUseCaseTest {
     @Test
     fun `Check data is correct, success result is returned`() {
         assertEquals(
-            expected = ValidateRegisterDataUseCase.Result.Success,
+            expected = ValidateAuthDataUseCase.Result.Success,
             actual = callTestedMethod(),
         )
     }
@@ -100,7 +130,7 @@ class ValidateRegisterDataUseCaseTest {
         email: String = CORRECT_EMAIL,
         password: String = CORRECT_PASSWORD,
         username: String = CORRECT_USERNAME
-    ) = validateRegisterDataUseCase(
+    ) = validateAuthDataUseCase(
         email = email,
         password = password,
         username = username
