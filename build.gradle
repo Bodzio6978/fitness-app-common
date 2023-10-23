@@ -36,7 +36,7 @@ publishing {
         maven(MavenPublication) {
             groupId = "com.github.bodzio6978"
             artifactId = "fitness-app-common"
-            version = "1.3"
+            version = "1.4"
 
             from components.java
         }
