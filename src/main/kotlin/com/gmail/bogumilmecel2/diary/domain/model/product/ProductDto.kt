@@ -7,7 +7,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Product(
+data class ProductDto(
     @SerialName("id")
     val id: String? = null,
 
