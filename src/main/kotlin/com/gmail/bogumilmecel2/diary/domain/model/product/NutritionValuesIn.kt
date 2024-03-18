@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.gmail.bogumilmecel2.diary.domain.model.product
 
 import kotlinx.serialization.SerialName

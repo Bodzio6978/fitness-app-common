@@ -3,6 +3,7 @@ package com.gmail.bogumilmecel2.diary.domain.model.recipe
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Suppress("unused")
 @Serializable
 enum class TimeRequiredInMinutes {
     @SerialName("fifteen")
