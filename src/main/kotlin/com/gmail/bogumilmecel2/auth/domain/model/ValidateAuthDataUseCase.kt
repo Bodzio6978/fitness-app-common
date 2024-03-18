@@ -1,4 +1,4 @@
-package com.gmail.bogumilmecel2.auth
+package com.gmail.bogumilmecel2.auth.domain.model
 
 import com.gmail.bogumilmecel2.util.Constants
 import com.gmail.bogumilmecel2.util.extensions.isLengthInRange

@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class RecipeDto(
+data class Recipe(
     @SerialName("id")
     val id: String? = null,
 
