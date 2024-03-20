@@ -1,6 +1,6 @@
 package com.gmail.bogumilmecel2.auth
 
-import com.gmail.bogumilmecel2.auth.domain.model.ValidateAuthDataUseCase
+import com.gmail.bogumilmecel2.auth.domain.use_case.ValidateAuthDataUseCase
 import com.gmail.bogumilmecel2.util.Constants
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
