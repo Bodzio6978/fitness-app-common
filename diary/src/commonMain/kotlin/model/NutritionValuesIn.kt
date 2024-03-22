@@ -1,6 +1,4 @@
-@file:Suppress("unused")
-
-package com.gmail.bogumilmecel2.diary.domain.model.product
+package model
 
 import kotlinx.serialization.SerialName
 

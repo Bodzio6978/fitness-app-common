@@ -1,4 +1,4 @@
-package com.gmail.bogumilmecel2.diary.domain.model.recipe
+package model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

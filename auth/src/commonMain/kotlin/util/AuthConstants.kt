@@ -1,6 +1,6 @@
-package com.gmail.bogumilmecel2.util
+package util
 
-object Constants {
+object AuthConstants {
     object Authentication {
         const val USERNAME_MAX_LENGTH = 32
         const val USERNAME_MIN_LENGTH = 4

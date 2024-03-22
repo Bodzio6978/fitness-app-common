@@ -17,7 +17,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+            implementation(project(":shared"))
+        }
+        commonTest.dependencies {
+            implementation("org.jetbrains.kotlin:kotlin-test")
         }
     }
 }

@@ -18,7 +18,6 @@ plugins {
 }
 
 rootProject.name = "fitness-app-common"
-include("main")
 include("shared")
 include("auth")
 include("diary")
