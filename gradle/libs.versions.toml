@@ -5,7 +5,7 @@ kotlin = "1.9.22"
 
 kotlinx-serialization = "1.6.3"
 
-fitness-app-common = "1.6"
+fitness-app-common = "1.7"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }

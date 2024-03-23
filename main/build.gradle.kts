@@ -30,7 +30,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.bodzio6978"
             artifactId = "fitness-app-common"
-            version = "1.6"
+            version = libs.versions.fitness.app.common.get()
         }
     }
 }
