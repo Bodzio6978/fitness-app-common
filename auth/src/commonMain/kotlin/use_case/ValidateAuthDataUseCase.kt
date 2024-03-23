@@ -42,8 +42,8 @@ class ValidateAuthDataUseCase {
             )
         ) return Result.PasswordLengthInvalid
 
-        val emailRegex = "^[A-Za-z](.*)([@])(.+)(\\.)(.+)".toRegex()
-        if (email.matches(emailRegex)) return Result.InvalidEmail
+        val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$".toRegex()
+        if (!email.matches(emailRegex)) return Result.InvalidEmail
 
         return Result.Success
     }

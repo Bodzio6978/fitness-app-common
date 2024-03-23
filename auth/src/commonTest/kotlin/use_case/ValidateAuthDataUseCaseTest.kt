@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 class ValidateAuthDataUseCaseTest {
     companion object {
         private const val INVALID_EMAIL = "email"
-        private const val CORRECT_EMAIL = "email@email.com"
+        private const val CORRECT_EMAIL = "Email@email.com"
         private const val CORRECT_PASSWORD = "123456"
         private const val CORRECT_USERNAME = "username"
     }
@@ -38,7 +38,9 @@ class ValidateAuthDataUseCaseTest {
     fun `Check if username is empty empty fields result is returned`() {
         assertEquals(
             expected = ValidateAuthDataUseCase.Result.EmptyFields,
-            actual = callTestedMethod(username = ""),
+            actual = callTestedMethod(
+                username = ""
+            ),
         )
     }
 

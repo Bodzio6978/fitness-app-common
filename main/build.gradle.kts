@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.android.library)
+    id("maven-publish")
 }
 
 kotlin {
@@ -19,20 +19,24 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "introduction"
+            baseName = "main"
             isStatic = true
         }
     }
+}
 
-    sourceSets {
-        commonMain.dependencies {
-            implementation(project(":shared"))
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.github.bodzio6978"
+            artifactId = "fitness-app-common"
+            version = "1.6"
         }
     }
 }
 
 android {
-    namespace = "com.gmail.bogumilmecel2.introduction"
+    namespace = "com.gmail.bogumilmecel2.main"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {

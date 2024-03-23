@@ -1,9 +1,18 @@
 plugins {
-    kotlin("multiplatform") version "1.9.22"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.22"
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.android.library)
 }
 
 kotlin {
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -22,5 +31,15 @@ kotlin {
         commonTest.dependencies {
             implementation("org.jetbrains.kotlin:kotlin-test")
         }
+    }
+}
+
+android {
+    namespace = "com.gmail.bogumilmecel2.auth"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
